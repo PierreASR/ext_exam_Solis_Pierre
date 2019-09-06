@@ -8,7 +8,7 @@
 
 #define TIME_STEP 64
 #define PI 3.1415
-#define OBSTACLE_DISTANCE .17
+#define OBSTACLE_DISTANCE 0.17
 
 double encoder_L1,encoder_L1_dif;
 double encoder_L2, encoder_L2_dif;
@@ -83,7 +83,7 @@ void radar_on(WbDeviceTag radar_motor) {
     WbDeviceTag Radar_encoder = wb_robot_get_device("position_sensorT1");
     WbDeviceTag gun_motor     = wb_robot_get_device("gun_motor");
     pos_radar=wb_position_sensor_get_value(Radar_encoder);
-    wb_motor_set_velocity(radar_motor, .01);
+    wb_motor_set_velocity(radar_motor, 0.01);
     wb_motor_set_position(gun_motor, (pos_radar-3.1416));
     wb_motor_set_velocity(radar_motor, 0);
 
