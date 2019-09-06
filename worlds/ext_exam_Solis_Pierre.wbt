@@ -2,19 +2,17 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.16465627245236095 0.9537127805933836 0.2516351407791254 2.0013603009722223
-  position 1.2540711578946604 0.9112975666666915 -0.46537376827151267
+  orientation 0.1331009671627419 0.978590626377412 0.15698572707927005 4.488577712109113
+  position -1.0893320338027228 0.6010659325992466 -0.15819199316522983
 }
 TexturedBackground {
-}
-TexturedBackgroundLight {
 }
 Floor {
 }
 Robot {
+  translation 0 0.08 0
   children [
     Solid {
-      translation 0 0.08 0
       children [
         DEF G_BOX Shape {
           appearance DEF ROBOT PBRAppearance {
@@ -46,13 +44,12 @@ Robot {
           }
           lookupTable [
             0 0 0
-            0.1 1000 0
-            0 0 0
+            0.05 255 0
+            0.4 255 0
           ]
         }
         DEF H_WHEEL1_1 HingeJoint {
           jointParameters HingeJointParameters {
-            position -3
             axis 0 0 1
             anchor -0.1 0 0.1
           }
@@ -68,8 +65,8 @@ Robot {
             }
           ]
           endPoint Solid {
-            translation -0.09996344791204832 0.0002047011236309586 0.13003193458083573
-            rotation 0.9955858131703751 0.06636398754626803 0.06636798754551744 1.5752323071795864
+            translation -0.10006507371702392 -0.0001974943454939832 0.13003193458083573
+            rotation 0.002995724378986648 0.7071077436058466 0.7070994728947927 3.1356080793748884
             children [
               DEF S_WHEEL Shape {
                 appearance PBRAppearance {
@@ -106,7 +103,7 @@ Robot {
           ]
           endPoint Solid {
             translation 0.10002696928509244 0.00017483348655474335 0.12999993104022295
-            rotation 0.9999820773141174 -0.004233000327276549 -0.004234000327353865 1.5708053071795867
+            rotation 0.0029939983567654105 0.7071066119095922 0.7071006119128853 3.1356059999999997
             children [
               USE S_WHEEL
             ]
@@ -223,7 +220,7 @@ Robot {
                       }
                     }
                     Solid {
-                      translation 0.09999999999999999 0 0
+                      translation 0.09999999999999999 -0.049999999999999996 0
                       rotation 0 0 -1 1.5707959999999999
                       children [
                         DEF S_GUN Shape {
@@ -250,6 +247,7 @@ Robot {
                 translation 0.06 0.05 0
                 children [
                   Solid {
+                    translation 0 0.049999999999999996 0
                     children [
                       DEF E_D Shape {
                         appearance USE ROBOT
@@ -268,6 +266,10 @@ Robot {
                 boundingObject USE E_D
                 physics Physics {
                 }
+                lookupTable [
+                  0.1 0 0
+                  2 1000 0
+                ]
                 type "infra-red"
               }
             ]
@@ -283,5 +285,41 @@ Robot {
       }
     }
   ]
+  boundingObject USE G_BOX
+  physics Physics {
+  }
   controller "ext_exam_Solis_Pierre"
+}
+Solid {
+  translation 1 0.25 0.8999999999999999
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+      }
+      geometry DEF ENEMY Cylinder {
+        height 0.5
+        radius 0.1
+      }
+    }
+  ]
+  boundingObject USE ENEMY
+  physics Physics {
+  }
+}
+Solid {
+  translation 0.99 0.075 0
+  children [
+    DEF OBS_BOX Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.15 0.15 0.15
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE OBS_BOX
+  physics Physics {
+  }
 }

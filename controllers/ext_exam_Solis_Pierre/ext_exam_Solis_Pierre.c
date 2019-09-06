@@ -40,11 +40,11 @@ void goRobot(WbDeviceTag *wheels) {
   wb_motor_set_position(wheels[0], INFINITY);
   wb_motor_set_velocity(wheels[0], 4);
   wb_motor_set_position(wheels[1], INFINITY);
-  wb_motor_set_velocity(wheels[1], 4);
+  wb_motor_set_velocity(wheels[1], -4);
   wb_motor_set_position(wheels[2], INFINITY);
   wb_motor_set_velocity(wheels[2], 4);
   wb_motor_set_position(wheels[3], INFINITY);
-  wb_motor_set_velocity(wheels[3], 4);
+  wb_motor_set_velocity(wheels[3], -4);
 }
 void stopRobot(WbDeviceTag *wheels) {
   wb_motor_set_velocity(wheels[0], 0);
@@ -81,7 +81,7 @@ void radar_on(WbDeviceTag radar_motor) {
     wb_motor_set_velocity(radar_motor, 0);
     radar_giro++;
     WbDeviceTag Radar_encoder = wb_robot_get_device("position_sensorT1");
-    WbDeviceTag gun_motor     = wb_robot_get_device("gun_motor");
+    WbDeviceTag gun_motor     = wb_robot_get_device("motorT1");
     pos_radar=wb_position_sensor_get_value(Radar_encoder);
     wb_motor_set_velocity(radar_motor, .01);
     wb_motor_set_position(gun_motor, (pos_radar-3.1416));
@@ -141,8 +141,8 @@ WbDeviceTag wheel_left_1  = wb_robot_get_device("motorL1");
 WbDeviceTag wheel_left_2  = wb_robot_get_device("motorL2");
 WbDeviceTag wheel_right_1 = wb_robot_get_device("motorR_1");
 WbDeviceTag wheel_right_2 = wb_robot_get_device("motorR_2");
-WbDeviceTag radar_motor   = wb_robot_get_device("motorT1");
-WbDeviceTag gun_motor     = wb_robot_get_device("gun_motor");
+WbDeviceTag radar_motor   = wb_robot_get_device("gun_motor");
+WbDeviceTag gun_motor     = wb_robot_get_device("motorT1");
 
 WbDeviceTag wheels[4];
 wheels[0] = wheel_left_1;
