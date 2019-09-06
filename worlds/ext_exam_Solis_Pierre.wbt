@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.1331009671627419 0.978590626377412 0.15698572707927005 4.488577712109113
-  position -1.0893320338027228 0.6010659325992466 -0.15819199316522983
+  orientation 0.012469236012784268 0.9935257087164124 0.11292114183273279 3.3063384756364256
+  position -0.07626517457210066 0.3446216907705285 -0.767611907205712
 }
 TexturedBackground {
 }
@@ -47,6 +47,7 @@ Robot {
             0.05 255 0
             0.4 255 0
           ]
+          type "sonar"
         }
         DEF H_WHEEL1_1 HingeJoint {
           jointParameters HingeJointParameters {
@@ -54,19 +55,18 @@ Robot {
             anchor -0.1 0 0.1
           }
           device [
-            RotationalMotor {
-              name "motorR_1"
-              maxVelocity 46.07
-              maxTorque 20
-            }
             PositionSensor {
               name "position_sensorR_1"
               resolution 163
             }
+            RotationalMotor {
+              name "motorR_1"
+              maxVelocity 46
+            }
           ]
           endPoint Solid {
             translation -0.10006507371702392 -0.0001974943454939832 0.13003193458083573
-            rotation 0.002995724378986648 0.7071077436058466 0.7070994728947927 3.1356080793748884
+            rotation -0.999982068840268 0.004237000291681465 -0.004232000291337258 1.570825
             children [
               DEF S_WHEEL Shape {
                 appearance PBRAppearance {
@@ -97,13 +97,12 @@ Robot {
             }
             RotationalMotor {
               name "motorR_2"
-              maxVelocity 46.07
-              maxTorque 20
+              maxVelocity 46
             }
           ]
           endPoint Solid {
             translation 0.10002696928509244 0.00017483348655474335 0.12999993104022295
-            rotation 0.0029939983567654105 0.7071066119095922 0.7071006119128853 3.1356059999999997
+            rotation -0.9999820773141173 0.004234000327353864 -0.0042330003272765485 1.5708223071795864
             children [
               USE S_WHEEL
             ]
@@ -125,13 +124,12 @@ Robot {
             }
             RotationalMotor {
               name "motorL1"
-              maxVelocity 46.07
-              maxTorque 20
+              maxVelocity 46
             }
           ]
           endPoint Solid {
             translation -0.10002696535448509 0.00017483514487541123 -0.12999993272638216
-            rotation 0.9999820773141173 0.004234000327353864 0.0042330003272765485 1.5708233071795865
+            rotation -0.002994000473823068 0.7071071119050125 -0.7071001119039049 3.1356063071795863
             children [
               USE S_WHEEL
             ]
@@ -153,13 +151,12 @@ Robot {
             }
             RotationalMotor {
               name "motorL2"
-              maxVelocity 46.07
-              maxTorque 20
+              maxVelocity 46
             }
           ]
           endPoint Solid {
             translation 0.09996345183508178 0.00020470214039595164 -0.13003194148107636
-            rotation 0.9999820688442679 0.004233000291423031 0.004236000291629568 1.570801307179586
+            rotation -0.002993000482600418 0.7070991140147919 -0.7071081140162425 3.135602307179586
             children [
               USE S_WHEEL
             ]
@@ -205,7 +202,7 @@ Robot {
                   }
                   RotationalMotor {
                     name "gun_motor"
-                    maxVelocity 46.07
+                    maxVelocity 46
                   }
                 ]
                 endPoint Solid {
@@ -220,7 +217,7 @@ Robot {
                       }
                     }
                     Solid {
-                      translation 0.09999999999999999 -0.049999999999999996 0
+                      translation -0.09999999999999999 0 0
                       rotation 0 0 -1 1.5707959999999999
                       children [
                         DEF S_GUN Shape {
@@ -247,7 +244,6 @@ Robot {
                 translation 0.06 0.05 0
                 children [
                   Solid {
-                    translation 0 0.049999999999999996 0
                     children [
                       DEF E_D Shape {
                         appearance USE ROBOT
@@ -291,7 +287,7 @@ Robot {
   controller "ext_exam_Solis_Pierre"
 }
 Solid {
-  translation 1 0.25 0.8999999999999999
+  translation -0.48 0.25 0.8999999999999999
   children [
     Shape {
       appearance PBRAppearance {
@@ -308,7 +304,7 @@ Solid {
   }
 }
 Solid {
-  translation 0.99 0.075 0
+  translation 0.83 0.075 0
   children [
     DEF OBS_BOX Shape {
       appearance PBRAppearance {
