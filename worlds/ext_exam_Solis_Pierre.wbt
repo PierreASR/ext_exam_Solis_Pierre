@@ -1,0 +1,287 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.16465627245236095 0.9537127805933836 0.2516351407791254 2.0013603009722223
+  position 1.2540711578946604 0.9112975666666915 -0.46537376827151267
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Robot {
+  children [
+    Solid {
+      translation 0 0.08 0
+      children [
+        DEF G_BOX Shape {
+          appearance DEF ROBOT PBRAppearance {
+          }
+          geometry Box {
+            size 0.2 0.1 0.2
+          }
+        }
+        DistanceSensor {
+          translation 0.11 0 0
+          children [
+            Solid {
+              children [
+                DEF OBS_D Shape {
+                  appearance USE ROBOT
+                  geometry Box {
+                    size 0.02 0.02 0.02
+                  }
+                }
+              ]
+              boundingObject USE OBS_D
+              physics Physics {
+              }
+            }
+          ]
+          name "obs_detector"
+          boundingObject USE OBS_D
+          physics Physics {
+          }
+          lookupTable [
+            0 0 0
+            0.1 1000 0
+            0 0 0
+          ]
+        }
+        DEF H_WHEEL1_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -3
+            axis 0 0 1
+            anchor -0.1 0 0.1
+          }
+          device [
+            RotationalMotor {
+              name "motorR_1"
+              maxVelocity 46.07
+              maxTorque 20
+            }
+            PositionSensor {
+              name "position_sensorR_1"
+              resolution 163
+            }
+          ]
+          endPoint Solid {
+            translation -0.09996344791204832 0.0002047011236309586 0.13003193458083573
+            rotation 0.9955858131703751 0.06636398754626803 0.06636798754551744 1.5752323071795864
+            children [
+              DEF S_WHEEL Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.05
+                  radius 0.08
+                }
+              }
+            ]
+            boundingObject USE S_WHEEL
+            physics Physics {
+            }
+          }
+        }
+        DEF H_WHEEL1_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0.1 0 0.1
+          }
+          device [
+            PositionSensor {
+              name "position_sensorR_2"
+              resolution 163
+            }
+            RotationalMotor {
+              name "motorR_2"
+              maxVelocity 46.07
+              maxTorque 20
+            }
+          ]
+          endPoint Solid {
+            translation 0.10002696928509244 0.00017483348655474335 0.12999993104022295
+            rotation 0.9999820773141174 -0.004233000327276549 -0.004234000327353865 1.5708053071795867
+            children [
+              USE S_WHEEL
+            ]
+            name "solid(1)"
+            boundingObject USE S_WHEEL
+            physics Physics {
+            }
+          }
+        }
+        DEF H_WHEEL2_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.1 0 -0.1
+          }
+          device [
+            PositionSensor {
+              name "position_sensorL1"
+              resolution 163
+            }
+            RotationalMotor {
+              name "motorL1"
+              maxVelocity 46.07
+              maxTorque 20
+            }
+          ]
+          endPoint Solid {
+            translation -0.10002696535448509 0.00017483514487541123 -0.12999993272638216
+            rotation 0.9999820773141173 0.004234000327353864 0.0042330003272765485 1.5708233071795865
+            children [
+              USE S_WHEEL
+            ]
+            name "solid(2)"
+            boundingObject USE S_WHEEL
+            physics Physics {
+            }
+          }
+        }
+        DEF H_WHEEL2_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0.1 0 -0.1
+          }
+          device [
+            PositionSensor {
+              name "position_sensorL2"
+              resolution 163
+            }
+            RotationalMotor {
+              name "motorL2"
+              maxVelocity 46.07
+              maxTorque 20
+            }
+          ]
+          endPoint Solid {
+            translation 0.09996345183508178 0.00020470214039595164 -0.13003194148107636
+            rotation 0.9999820688442679 0.004233000291423031 0.004236000291629568 1.570801307179586
+            children [
+              USE S_WHEEL
+            ]
+            name "solid(3)"
+            boundingObject USE S_WHEEL
+            physics Physics {
+            }
+          }
+        }
+        DEF H_T_BASE HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+          }
+          device [
+            PositionSensor {
+              name "position_sensorT1"
+              resolution 163
+            }
+            RotationalMotor {
+              name "motorT1"
+              maxVelocity 46.07
+            }
+          ]
+          endPoint Solid {
+            translation 2.7903369928225737e-06 0.1199532667550418 3.23259149727643e-07
+            rotation -0.00036637733320615953 0.9999965327490363 0.0026077303455167397 6.283078184042788
+            children [
+              DEF S_T_BASE Shape {
+                appearance USE ROBOT
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.05
+                }
+              }
+              DEF H_T_GUN HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0 1 0
+                }
+                device [
+                  PositionSensor {
+                    name "gun_position"
+                    resolution 163
+                  }
+                  RotationalMotor {
+                    name "gun_motor"
+                    maxVelocity 46.07
+                  }
+                ]
+                endPoint Solid {
+                  translation 0 0.09999999999999999 0
+                  children [
+                    DEF S_G_S Shape {
+                      appearance PBRAppearance {
+                      }
+                      geometry Cylinder {
+                        height 0.05
+                        radius 0.05
+                      }
+                    }
+                    Solid {
+                      translation 0.09999999999999999 0 0
+                      rotation 0 0 -1 1.5707959999999999
+                      children [
+                        DEF S_GUN Shape {
+                          appearance PBRAppearance {
+                          }
+                          geometry Cylinder {
+                            height 0.1
+                            radius 0.015
+                          }
+                        }
+                      ]
+                      boundingObject USE S_GUN
+                      physics Physics {
+                      }
+                    }
+                  ]
+                  name "solid(1)"
+                  boundingObject USE S_G_S
+                  physics Physics {
+                  }
+                }
+              }
+              DistanceSensor {
+                translation 0.06 0.05 0
+                children [
+                  Solid {
+                    children [
+                      DEF E_D Shape {
+                        appearance USE ROBOT
+                        geometry Cylinder {
+                          height 0.02
+                          radius 0.02
+                        }
+                      }
+                    ]
+                    boundingObject USE E_D
+                    physics Physics {
+                    }
+                  }
+                ]
+                name "enemy_detector"
+                boundingObject USE E_D
+                physics Physics {
+                }
+                type "infra-red"
+              }
+            ]
+            name "solid(4)"
+            boundingObject USE S_T_BASE
+            physics Physics {
+            }
+          }
+        }
+      ]
+      boundingObject USE G_BOX
+      physics Physics {
+      }
+    }
+  ]
+  controller "ext_exam_Solis_Pierre"
+}
